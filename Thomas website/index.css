@@ -1,0 +1,106 @@
+/* contenu de la page */
+#main_content {
+    text-align: center;
+    width: 80%;
+    padding: 8% 0 10% 0;
+}
+
+/* texte "Présentation" */
+h2 {
+    align-self: center;
+    font-size: 250%;
+    margin-bottom: 4%;
+    background-color: rgba(255,255,255, 0.4);
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 1% 0 1% 0;
+}
+
+/* texte de présentation */
+#main_content p {
+    width: 100%;
+    align-self: center;
+    font-size: 120%;
+}
+
+/* toutes les listes */
+ul {
+    list-style: none;
+}
+
+/* liste contenant les 3 catégories */
+#containers {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+}
+
+/* chaque catégorie (LEGO, Pokémon, Autres) */
+.container {
+    width: 20%;
+    height: fit-content;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.4);
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+/* le titre de chaque catégorie */
+h4 {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+/* tous les liens */
+a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+/* quand la souris touche un lien */
+a:hover {
+    color: rgba(228,184,44);
+    cursor: pointer;
+}
+
+/* les sous-menus */
+.hide {
+    display: none;
+    margin-top: 4%;
+    padding-top: 2%;
+    border-top: 1px solid black;
+}
+
+/* contenu des sous-menus */
+.hide li {
+    font-size: 100%;
+    text-align: start;
+    padding: 1% 0 1% 0;
+}
+
+/* quand le sous-menu survolé est celui de LEGO */
+#lego:target {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+}
+
+/* quand le sous-menu survolé est celui de Pokémon */
+#pokemon:target {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* quand le sous-menu survolé est celui de Autres */
+#others:target {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

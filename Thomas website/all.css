@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(173,200,255,0.8);
+    padding: 2%;
+}
+
+h1 {
+    color: white;
+    font-size: 400%;
+    
+    text-shadow: 
+        1px 1px 5px black,
+        -1px -1px 5px black;
+}
+
+h2 {
+    margin-top: 4%;
+    text-align: center; 
+    width: fit-content;
+    align-self: center;
+    padding: 5px;
+    border-style: solid;
+}
+
+h3 {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+#main_background {
+    width: 100%;
+    background-image:
+        linear-gradient(to bottom, rgba(93, 93, 173, 0.5), rgba(93, 93, 173, 0.5)),
+        url("star.png");}
+
+#main_content {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-self: center;
+    width: 90%;
+    padding: 2% 0 10% 0;
+}
+
+#return {
+    padding-bottom: 5%;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+    font-size: large;
+    text-align: left;
+}
+
+#date {
+    text-align: right;
+    margin-top: 4%;
+}
+
+#imgs {
+    margin-top: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.img30 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+}
+
+.img33 {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    justify-content: center;
+}
+
+.img45 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    justify-content: center;
+}
+
+.img100 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+#imgs img {
+    max-height: 90%;
+    width: 100%;
+    object-fit: contain;
+    align-self: center;
+}
+
+#imgs p {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    background-color: rgba(173,200,255,0.8);
+    justify-content: center;
+    padding: 1% 0 1% 0;
+    font-size:medium;
+}
+
+.tabulation {
+    margin-left: 4%;
+}
+
+.gauche {
+    text-align: left;
+}
