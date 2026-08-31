@@ -7,21 +7,13 @@
     <link rel="stylesheet" href="all.css">
     <link rel="stylesheet" href="index.css">
 
-    <!-- Google tag (gtag.js) - DÉSACTIVÉ -->
-<!-- Le script est bloqué grâce à type="text/plain" -->
-<script type="text/plain" data-disabled-script="gtag" data-src="https://www.googletagmanager.com/gtag/js?id=G-MY8XNGXXE5"></script>
-
-<!-- Ce code JS est neutralisé avec if (false) -->
-<script>
-  if (false) {
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY8XNGXXE5"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-MY8XNGXXE5');
-  }
-  
-</script>
-
+    </script> -->
 </head>
 
 <body>
@@ -67,11 +59,25 @@
                     </ul>
                 </li>
             </ul>
+
+            <dialog id="popup">
+                <div class="popup-content">
+                    <div class="adventurerRow">
+                        <img src="character(ChatGPT).png" alt="Bartleby Raimondi">
+                        <p>Salut à toi l’ami,<br><br>Je me présente, Bartleby Raimondi. Je suis un explorateur qui a fabriqué une ceinture extra-dimensionnelle qui me téléporte dans différents mondes et univers. Hélas, je n’ai pas toujours la main dessus, et ma création m’envoie parfois dans de drôles de milieux. À chaque visite dans un monde, j’ai pris une photo en souvenir. Réussiras-tu à retrouver les univers correspondant aux photos que j’ai prises ? </p>
+                    </div>
+                    <div class="buttonsRow">
+                        <button id="fermer" onclick="document.getElementById('popup').close()">Fermer</button>
+                        <a href="L'aventure/main.html"><button onclick="document.getElementById('popup').close()">Jouer</button></a>
+                    </div>
+                </div>
+            </dialog>
+            <button id="jeuDeLaventurier" onclick="document.getElementById('popup').showModal()">Jeu de l'aventurier</button>
         </div>
     </div>
 
     <footer>
-        <p>© Copyright 2025 L'univers d'un Thomas. Tous droits réservés</p>
+        <p>© copyright 2025-2026 L'univers d'un Thomas. Tous droits réservés</p>
     </footer>
 
 </body>

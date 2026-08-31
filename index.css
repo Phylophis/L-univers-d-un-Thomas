@@ -104,3 +104,87 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
 }
+
+/* les boutons (Jeu de l'aventurier, Jouer, Fermer) */
+button {
+    align-self: center;
+    height: fit-content;
+    min-width: 10vw;
+    width: 15vw;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 150%;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* bouton Jeu de l'aventurier */
+#jeuDeLaventurier {
+    margin-top: 5%;
+    padding: 1% 2%;
+    width: fit-content;
+    background-color: rgba(128, 0, 0, 0.4);
+    border: 1px solid red;
+}
+
+/* Survol du Jeu de l'aventurier (écrase le "Survol des boutons") */
+#jeuDeLaventurier:hover {
+    color: rgb(112, 4, 4);
+}
+
+/* popup */
+#popup {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* floute le reste de l'écran quand le popup est visible */
+#popup::backdrop {
+    background: rgb(0 0 0 / 25%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* popup, aussi */
+.popup-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ligne pour l'aventurier et son texte */
+.adventurerRow {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    height: 90%;
+    align-self: flex-end;
+    justify-content: space-between;
+}
+
+.adventurerRow > p {
+    background-color: rgba(192, 192, 192, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    border-radius: 25px;
+}
+
+/* Ligne pour les boutons Jouer et Fermer */
+.buttonsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;   
+}
+
+/* texte de l'aventurier */
+.popup-right > p {
+    text-align: center;
+    font-size: 1.5rem;
+}
