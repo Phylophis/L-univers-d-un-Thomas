@@ -1,20 +1,6 @@
 "use strict"
 
-const keys = (collection) => Object.keys(collection ?? [])
-const values = (collection) => Object.values(collection ?? [])
-const round = (value, precision = 0) => {
-    let decimal = '1'
-    for (let i = 0; i < precision; i++) {
-        decimal += '0'
-    }
-    decimal = parseInt(decimal)
-    return Math.round(value * decimal) / decimal
-}
-const getRandomPlace = (nbOptions) => {
-    const random = round(Math.random() * nbOptions)
-    return random === nbOptions ? random - 1 : random
-}
-
+// Constante : contenu de la page
 const JS_RANDOM = {
     CHIMA: {
         name: 'Chima',
@@ -88,12 +74,45 @@ const JS_RANDOM = {
     },
 }
 
+// Constante : messages de fin
 const END = {
-    0: 'Tu ne connais pas tous les univers dans lesquels j’ai voyagé. Mais cela t’aura permis d’en découvrir. Retente le test si tu veux, et essaie de faire mieux.',
-    1: 'Tu connais la majorité des univers dans lesquels j’ai voyagé. Cela t’aura permis d’en découvrir. Retente le test si tu veux, et essaie de faire mieux.',
-    2: 'Quoi ?! Tu connais tous les univers dans lesquels j’ai voyagé ! Bon eh bien, j’espère que certaines de mes photos t’auront rappelé des souvenirs. Bravo à toi en tout cas.',
+    ZERO : 'Tu ne connais pas tous les univers dans lesquels j’ai voyagé. Mais cela t’aura permis d’en découvrir. Retente le test si tu veux, et essaie de faire mieux.',
+    CINQUANTE: 'Tu connais la majorité des univers dans lesquels j’ai voyagé. Cela t’aura permis d’en découvrir. Retente le test si tu veux, et essaie de faire mieux.',
+    CENT: 'Quoi ?! Tu connais tous les univers dans lesquels j’ai voyagé ! Bon eh bien, j’espère que certaines de mes photos t’auront rappelé des souvenirs. Bravo à toi en tout cas.',
 }
 
+// Utilitaires
+const keys = (collection) => Object.keys(collection ?? [])
+
+const values = (collection) => Object.values(collection ?? [])
+
+const round = (value, precision = 0) => {
+    let decimal = '1'
+    for (let i = 0; i < precision; i++) {
+        decimal += '0'
+    }
+    decimal = parseInt(decimal)
+    return Math.round(value * decimal) / decimal
+}
+
+const getRandomPlace = (nbOptions) => {
+    const random = round(Math.random() * nbOptions)
+    return random === nbOptions ? random - 1 : random
+}
+
+const getRandomAvailablePlace = (list = []) => {
+    const availablePlaces = list.map((done, index) => done === false ? index : null).filter(index => index !== null)
+    const random = getRandomPlace(availablePlaces.length)
+    return availablePlaces[random]
+}
+
+const getEndMessage = (proportionOk = -1) => {
+    if (proportionOk === 100) return END.CENT
+    if (proportionOk > 50) return END.CINQUANTE
+    return END.ZERO
+}
+
+// Le programme
 window.addEventListener("DOMContentLoaded", event => {
     event.preventDefault()
 
@@ -106,49 +125,75 @@ window.addEventListener("DOMContentLoaded", event => {
     const popupText = document.querySelector('#popupText')
     const popupKeepOn = document.querySelector('#popupKeepOn')
 
-    // Variables usuelles
+    const endPopup = document.querySelector('#endPopup')
+    const endPopupText = document.querySelector('#endPopupText')
+
+    // Variables générales
     const optionsData = values(JS_RANDOM)
     const options = optionsData.map(option => option.name)
-    const nbOptions = options.length
-
-    // TODO getRandomPlace parmi les index d'avancement à false
     const avancement = Array.from(options, () => false)
+    let score = 0
 
-    // Boucle par monde (TODO)
-    const random = getRandomPlace(nbOptions)
+    // Affichage du monde
+    const afficherTour = (random) => {
+        // Affichage image / texte
+        image.setAttribute("src", `images/${optionsData[random].img}`)
+        image.setAttribute("alt", 'Image non trouvée')
+        text.innerHTML = optionsData[random].presentation
+
+        // Sélection des propositions
+        const propositions = []
+        const goodAnswer = optionsData[random]
+        const goodAnswerName = goodAnswer.name
+        const goodAnswerPlace = getRandomPlace(4)
+        const otherAnswers = options.filter(o => o !== goodAnswerName)
+        for (let i=0; i<3; i++) {
+            if (i === goodAnswerPlace) propositions.push(goodAnswerName)
+            const nbRemainingPropositions = otherAnswers.length
+            const randomProposition = getRandomPlace(nbRemainingPropositions)
+            propositions.push(otherAnswers[randomProposition])
+            otherAnswers.splice(randomProposition, 1)
+        }
+        if (goodAnswerPlace === 3) propositions.push(goodAnswerName)
+
+        // Affichage boutons et événements au clic
+        buttons.forEach((button, index) => {
+            button.innerHTML = propositions[index]
+            button.classList.remove('true')
+            button.classList.remove('wrong')
+            button.onclick = () => {
+                if (index === goodAnswerPlace) score += 1 
+                popupText.innerHTML = index === goodAnswerPlace ? goodAnswer.ok : goodAnswer.ko
+                button.classList.add(index === goodAnswerPlace ? 'true' : 'wrong')
+                setTimeout(() => popup.showModal(), 1000);
+            }
+        })
+    }
+
+    // Init
+    let random = getRandomAvailablePlace(avancement)
+    afficherTour(random)
+
+    // Boucle de jeu
     popupKeepOn.addEventListener('click', () => {
         avancement[random] = true
-        popup.close()
+        if (avancement.some(d => d === false)) {
+            random = getRandomAvailablePlace(avancement)
+            popup.close()
+            afficherTour(random)
+        } else {
+            const proportionOk = score / avancement.length * 100
+            endPopupText.innerHTML = getEndMessage(proportionOk)
+            popup.close()
+            endPopup.showModal()
+        }
     })
 
-    // Affichage image / texte
-    image.setAttribute("src", `images/${optionsData[random].img}`)
-    image.setAttribute("alt", 'Image non trouvée')
-    const mainText = optionsData[random].presentation
-    text.innerHTML = mainText
-
-    // Sélection des propositions
-    const propositions = []
-    const goodAnswer = optionsData[random].name
-    const goodAnswerPlace = getRandomPlace(4)
-    const otherAnswers = options.filter(o => o !== goodAnswer)
-    for (let i=0; i<3; i++) {
-        if (i === goodAnswerPlace) propositions.push(goodAnswer)
-        const nbRemainingPropositions = otherAnswers.length
-        const randomProposition = getRandomPlace(nbRemainingPropositions)
-        propositions.push(otherAnswers[randomProposition])
-        otherAnswers.splice(randomProposition, 1)
-    }
-    if (goodAnswerPlace === 3) propositions.push(goodAnswer)
-
-    // Affichage boutons et événements au clic
-    buttons.forEach((button, index) => {
-        button.innerHTML = propositions[index]
-        const option = optionsData.find(option => option.name === propositions[index])
-        button.addEventListener('click', () => {
-            index === goodAnswerPlace ? console.log('VRAI') : console.log('FAUX')
-            popupText.innerHTML = index === goodAnswerPlace ? option.ok : option.ko
-            popup.showModal()
-        })
+    // Recommencer la partie
+    document.querySelector('#restartButton').addEventListener('click', () => {
+        avancement.fill(false)
+        endPopup.close()
+        random = getRandomAvailablePlace(avancement)
+        afficherTour(random)
     })
 })
