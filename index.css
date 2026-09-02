@@ -2,7 +2,7 @@
 #main_content {
     text-align: center;
     width: 80%;
-    padding: 8% 0 10% 0;
+    padding: 8% 0 10vh 0;
 }
 
 /* texte "Présentation" */
@@ -70,36 +70,26 @@ a:hover {
 }
 
 /* les sous-menus */
-.hide {
-    display: none;
+.links {
     margin-top: 4%;
     padding-top: 2%;
     border-top: 1px solid black;
 }
 
 /* contenu des sous-menus */
-.hide li {
+.links li {
     font-size: 100%;
     text-align: start;
     padding: 1% 0 1% 0;
 }
 
-/* quand le sous-menu survolé est celui de LEGO */
-#lego:target {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;   
+/* contenu des sous-menus masqué (cf. index.js) */
+.hide {
+    display: none;
 }
 
-/* quand le sous-menu survolé est celui de Pokémon */
-#pokemon:target {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* quand le sous-menu survolé est celui de Autres */
-#others:target {
+/* contenu des sous-menus visible (cf. index.js) */
+.visible {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -120,7 +110,6 @@ button {
 
 /* bouton Jeu de l'aventurier */
 #jeuDeLaventurier {
-    margin-top: 5%;
     padding: 1% 2%;
     width: fit-content;
     background-color: rgba(128, 0, 0, 0.4);
@@ -130,6 +119,16 @@ button {
 /* Survol du Jeu de l'aventurier (écrase le "Survol des boutons") */
 #jeuDeLaventurier:hover {
     color: rgb(112, 4, 4);
+}
+
+/* Marge pour #jeuDeLaventurier quand une liste est étendue (cf. index.js) */
+.mt10 {
+    margin-top: 10vh;
+}
+
+/* Marge pour #jeuDeLaventurier quand aucune liste n'est étendue (cf. index.js) */
+.mt20 {
+    margin-top: 20vh;
 }
 
 /* popup */
@@ -186,16 +185,21 @@ button {
     border-radius: 25px;
 }
 
-/* queue de la bulle de dialogue à gauche */
-.dialogue::after {
+/* Queue de la bulle de dialogue */
+.dialogue::before {
     content: "";
     position: absolute;
-    left: -13px;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    background: rgba(192, 192, 192, 1);
-    border-left: 3px solid #222;
-    border-bottom: 3px solid #222;
-    transform: translateY(-50%) rotate(45deg);
+
+    width: 0;
+    height: 0;
+    left: -8px;
+    top: -8px;
+
+    border-left: 15px solid #c0e71200;
+    border-right: 15px solid #e7121200;
+    border-top: 25px solid #4012e700;
+    border-bottom: 25px solid #222;
+
+    transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+    z-index: -1;
 }

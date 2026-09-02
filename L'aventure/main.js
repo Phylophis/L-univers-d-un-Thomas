@@ -183,7 +183,7 @@ window.addEventListener("DOMContentLoaded", event => {
             afficherTour(random)
         } else {
             const proportionOk = score / avancement.length * 100
-            endPopupText.innerHTML = getEndMessage(proportionOk)
+            endPopupText.innerHTML = `Tu as obtenu ${score} bonnes réponses sur ${avancement.length} (${proportionOk}%).<br>${getEndMessage(proportionOk)}`
             popup.close()
             endPopup.showModal()
         }

@@ -54,7 +54,7 @@ button:hover {
     text-align: justify;
     justify-self: center;
     width: 90%;
-    padding: 2% 0 10% 0;
+    padding: 2% 0 10vh 0;
 }
 
 #return {
