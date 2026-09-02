@@ -1,0 +1,103 @@
+/* Contenu principal */
+.container {
+    width: 20%;
+    height: fit-content;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.4);
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+/* D'où provient cette image ? */
+#question {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.4);
+    margin: 5% 0;
+    padding: 1% 5%;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+/* Les longs textes de Raimondi */
+#theText {
+    margin: 5% 0;
+}
+
+/* Les 4 boutons */
+#buttonsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    align-self: center;
+    gap: 50px;
+}
+
+/* Chaque bouton */
+button {
+    align-self: center;
+    height: fit-content;
+    min-width: 10vw;
+    width: 20vw;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Bouton : mauvaise réponse */
+.wrong {
+    border: 1px solid red;
+    background-color: rgba(128, 0, 0, 0.5);
+}
+
+/* Bouton : bonne réponse */
+.true {
+    border: 1px solid green;
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+/* Popups (entre chaque question) */
+.popup {
+    max-width: 50vw;
+    align-self: center;
+    justify-self: center;
+    background-color: rgba(192, 192, 192, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    border-radius: 25px;
+}
+
+/* Floute le reste de l'écran quand un popup est actif */
+.popup::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Popups, aussi */
+.popupContent {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+/* Passer à la question suivante */
+#popupKeepOn {
+    align-self: flex-end;
+    color: #0000ff;
+}
+
+/* Ligne pour les boutons Retourner à l'acueil et Rejouer */
+.buttonsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

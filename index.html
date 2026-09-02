@@ -4,24 +4,19 @@
    
     <title>L'univers d'un Thomas</title>
     <meta charset="UTF-8">
+    <link rel="icon" href="characterLogo(ChatGPT).png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="characterLogo(ChatGPT).png">
+    <link rel="icon" type="image/png" href="characterLogo(ChatGPT).png">
     <link rel="stylesheet" href="all.css">
     <link rel="stylesheet" href="index.css">
 
-    <!-- Google tag (gtag.js) - DÉSACTIVÉ -->
-<!-- Le script est bloqué grâce à type="text/plain" -->
-<script type="text/plain" data-disabled-script="gtag" data-src="https://www.googletagmanager.com/gtag/js?id=G-MY8XNGXXE5"></script>
-
-<!-- Ce code JS est neutralisé avec if (false) -->
-<script>
-  if (false) {
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY8XNGXXE5"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-MY8XNGXXE5');
-  }
-  
-</script>
-
+    </script> -->
 </head>
 
 <body>
@@ -39,16 +34,16 @@
             <ul id = "containers">
 
                 <li class="container"> 
-                    <h4 class="container_title"><a href="#lego">LEGO</a></h4>
-                    <ul class="hide" id="lego">
+                    <h4 class="container_title"><a class="containerClick">LEGO</a></h4>
+                    <ul class="links hide" id="lego">
                         <li><a href="LEGO Transparence/lego_transparence.html">- Photos et transparences </a></li>
                         <li><a href="Image GIMP/image_gimp.html">- Images virtuelles</a></li>
                         <li><a href="Histoire avec LEGO/lego_histoire.html">- Histoire personnelle avec LEGO</a></li>
                     </ul>
                 </li>
                 <li class="container"> 
-                    <h4 class="container_title"><a href="#pokemon">Pokémon</a></h4>
-                    <ul class="hide" id="pokemon">
+                    <h4 class="container_title"><a class="containerClick">Pokémon</a></h4>
+                    <ul class="links hide" id="pokemon">
                         <li><a href="Review EV/poke_reviewEV.html">- Critique de EV</a></li>
                         <li><a href="Histoire avec Pokémon/poke_histoire.html">- Histoire personnelle avec Pokémon</a></li>
                         <li><a href="Professor Conference Bordeaux 2025/poke_conference.html">- Professor Conference Bordeaux 2025</a></li>
@@ -57,8 +52,8 @@
                 </li>
 
                 <li class="container"> 
-                    <h4 class="container_title"><a href="#others">Autres</a></h4>
-                    <ul class="hide" id="others">
+                    <h4 class="container_title"><a class="containerClick">Autres</a></h4>
+                    <ul class="links hide" id="others">
                         <li><a href="Saga Monster Hunter/bilanMH.html">- Saga Monster Hunter</a></li>
                         <li><a href="Minecraft/minecraft.html">- Minecraft</a></li>
                         <li><a href="Terraria/terraria.html">- Terraria</a></li>
@@ -67,11 +62,27 @@
                     </ul>
                 </li>
             </ul>
+
+            <dialog id="popup">
+                <div class="popupContent">
+                    <div class="adventurerRow">
+                        <img src="character(ChatGPT).png" alt="Bartleby Raimondi">
+                        <p class="dialogue">Salut à toi l’ami,<br><br>Je me présente, Bartleby Raimondi. Je suis un explorateur qui a fabriqué une ceinture extra-dimensionnelle qui me téléporte dans différents mondes et univers. Hélas, je n’ai pas toujours la main dessus, et ma création m’envoie parfois dans de drôles de milieux. À chaque visite dans un monde, j’ai pris une photo en souvenir. Réussiras-tu à retrouver les univers correspondant aux photos que j’ai prises ? </p>
+                    </div>
+                    <div class="buttonsRow">
+                        <button id="fermer" onclick="document.getElementById('popup').close()">Fermer</button>
+                        <a href="L'aventure/main.html"><button onclick="document.getElementById('popup').close()">Jouer</button></a>
+                    </div>
+                </div>
+            </dialog>
+            <button id="jeuDeLaventurier" class="mt20" onclick="document.getElementById('popup').showModal()">Jeu de l'aventurier</button>
         </div>
     </div>
 
+    <script type="text/javascript" src="index.js"></script>
+
     <footer>
-        <p>© Copyright 2025 L'univers d'un Thomas. Tous droits réservés</p>
+        <p>© copyright 2025-2026 L'univers d'un Thomas. Tous droits réservés</p>
     </footer>
 
 </body>
