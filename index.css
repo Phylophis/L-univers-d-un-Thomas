@@ -203,3 +203,39 @@ button {
     transform: translateY(-50%) translateX(-50%) rotate(-45deg);
     z-index: -1;
 }
+
+/* Petits écrans */
+@media only screen and (max-width:750px) {
+
+    /* liste contenant les 3 catégories */
+    #containers {
+        flex-direction: column;
+        align-items: center;
+        gap: 10vh;
+    }
+
+    /* chaque catégorie (LEGO, Pokémon, Autres) */
+    .container {
+        width: 50%;
+    }
+
+    /* Marge pour #jeuDeLaventurier quand aucune liste n'est étendue (cf. index.js) */
+    .mt20 {
+        margin-top: 15vh;
+    }
+
+}
+
+@media only screen and (max-width:500px)  {
+
+    /* texte "Présentation" */
+    h2 {
+        font-size: 200%;
+    }
+
+    /* texte de présentation */
+    #main_content p {
+        font-size: 100%;
+    }
+
+}

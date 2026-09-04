@@ -2,14 +2,15 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 200px;
+    min-height: 200px;
+    max-height: fit-content;
     justify-content: left;
     margin-bottom: 4%; 
     align-content: center;
     align-items: center;
 }
 
-.imgLie {
+.imgLie, .imgLi {
     display: flex;
     flex-direction: column;
     width: 33%;
@@ -39,6 +40,30 @@
     height: 100%;
 }
 
-.imgLie p {
+.imgLi p {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width:1000px)  {
+
+    #imgs a img {
+        width: 30%;
+    }
+
+}
+
+@media only screen and (max-width:750px)  {
+
+    .imgLi {
+        width: 43%;
+    }
+
+    #imgs a img {
+        width: 40%;
+    }
+
+    .imgLi p {
+        font-size: medium;
+    }
+
 }

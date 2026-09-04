@@ -24,3 +24,37 @@
     justify-content: space-between;
     margin-bottom: 7%; 
 }
+
+@media only screen and (max-width:750px)  {
+
+    .row {
+        height: 300px;
+    }
+
+    .row100Img {
+        height: 500px;
+    }
+
+    .row_light {
+        height: 250px;
+    }
+
+}
+
+@media only screen and (max-width:500px)  {
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+    }
+
+    .row100Img {
+        height: 400px;
+    }
+
+    .row_light {
+        height: 200px;
+    }
+
+}
