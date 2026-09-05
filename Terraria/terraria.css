@@ -16,8 +16,24 @@
     margin-bottom: 4%; 
 }
 
+@media only screen and (max-width:750px)  {
 
+    .row, .row_light {
+        height: 250px;
+    }
 
+}
 
+@media only screen and (max-width:500px)  {
+    
+    .row {
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+    }
 
+    .row_light {
+        height: 150px;
+    }
 
+}
