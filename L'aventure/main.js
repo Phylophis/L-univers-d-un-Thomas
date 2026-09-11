@@ -132,8 +132,7 @@ window.addEventListener("DOMContentLoaded", event => {
     // Variables générales
     const optionsData = values(JS_RANDOM)
     const options = optionsData.map(option => option.name)
-    //const avancement = Array.from(options, () => false)
-    const avancement = [false,true,true,true,true,true,true,true,true,true]
+    const avancement = Array.from(options, () => false)
     const nbWorlds = avancement.length
     let score = 0
 

@@ -133,12 +133,18 @@ button {
 
 /* popup */
 #popup {
-    width: 100vw;
-    height: 98vh;
+    width: 98%;
+    height: 95vh;
     margin: 1vh 0;
     padding: 0;
     border: none;
     background: transparent;
+}
+
+/* Change les règles par défaut des <dialog> */
+dialog:-internal-dialog-in-top-layer {
+    max-width: none;
+    max-height: 98vh;
 }
 
 /* floute le reste de l'écran quand le popup est visible */
