@@ -9,6 +9,23 @@
     border: 1px solid black;
 }
 
+/* Ligne "Revenir en arrière" et l'avancement dans les questions */
+.headers {
+    display: flex;
+    justify-content: space-between;
+} 
+
+/* Progression dans les questions */
+#progression {
+    font-weight: bold;
+    font-size: larger;    
+    background-color: rgba(255,255,255, 0.4);
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid black;
+    height: fit-content;
+}
+
 /* D'où provient cette image ? */
 #question {
     width: fit-content;
@@ -100,4 +117,64 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+@media only screen and (max-width:750px)  {
+
+    /* Les 4 boutons */
+    #buttonsContainer {
+        width: 90%;
+        column-gap: 0;
+        justify-content: space-around;
+    }
+
+    /* Propositions */
+    #buttonsContainer button {
+        width: 40%;
+        font-size: medium;
+    }
+
+    /* Popups (entre chaque question) */
+    .popup {
+        max-width: 70vw;
+    }
+
+    /* Boutons "Retourner à l'accueil" et "Rejouer" */
+    .buttonsRow a {
+        width: 40%;
+    }
+
+    /* Pareil */
+    .buttonsRow a button {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width:500px)  {
+
+    /* Les 4 boutons */
+    #buttonsContainer {
+        flex-direction: column;
+        row-gap: 2vh;
+    }
+
+    /* Propositions */
+    #buttonsContainer button {
+        width: 80%;
+        font-size: medium;
+    }
+
+    /* Ligne pour les boutons Retourner à l'acueil et Rejouer */
+    .buttonsRow {
+        flex-direction: column;
+        row-gap: 1vh;
+        align-items: center;
+    }
+
+    /* Boutons "Retourner à l'accueil" et "Rejouer" */
+    .buttonsRow a {
+        width: 80%;
+    }
+
 }
