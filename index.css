@@ -167,12 +167,22 @@ button {
     justify-content: space-between;
 }
 
+/* Image de l'aventurier */
+.adventurerRow img {
+    object-fit: contain;
+}
+
 /* Ligne pour les boutons Jouer et Fermer */
 .buttonsRow {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10%;   
+}
+
+/* boutons Jouer et Fermer */
+.buttonsRow a, .buttonsRow button {
+    min-width: fit-content;
 }
 
 /* bulle de dialogue */
@@ -216,7 +226,7 @@ button {
 
     /* chaque catégorie (LEGO, Pokémon, Autres) */
     .container {
-        width: 50%;
+        width: 60%;
     }
 
     /* Marge pour #jeuDeLaventurier quand aucune liste n'est étendue (cf. index.js) */
@@ -224,9 +234,24 @@ button {
         margin-top: 15vh;
     }
 
+    /* boutons Jouer et Fermer */
+    .buttonsRow a, .buttonsRow button {
+        width: 20vw;
+    }
+
+    /* Image de l'aventurier */
+    .adventurerRow img {
+        max-height: 75vh;
+    }
+
 }
 
 @media only screen and (max-width:500px)  {
+
+    /* chaque catégorie (LEGO, Pokémon, Autres) */
+    .container {
+        width: 75%;
+    }
 
     /* texte "Présentation" */
     h2 {
@@ -236,6 +261,44 @@ button {
     /* texte de présentation */
     #main_content p {
         font-size: 100%;
+    }
+
+    /* popup */
+    #popup {
+        min-height: 98vh;
+        height: fit-content;
+    }
+
+    /* ligne pour l'aventurier et son texte */
+    .adventurerRow {
+        width: 90%;
+        flex-direction: column;
+        align-self: center;
+        margin-bottom: 5vh;
+    }
+
+    /* Image de l'aventurier */
+    .adventurerRow img {
+        object-fit: contain;
+        max-height: 50vh;
+    }
+
+    /* Queue de la bulle de dialogue */
+    .dialogue::before {
+        left: 50%;
+        top: -18px;
+        border-bottom: 25px solid #222;
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    /* les boutons (Jeu de l'aventurier, Jouer, Fermer) */
+    button {
+        font-size: larger;
+    }
+
+    /* boutons Jouer et Fermer */
+    .buttonsRow a, .buttonsRow button {
+        width: 30vw;
     }
 
 }

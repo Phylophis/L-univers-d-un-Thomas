@@ -117,6 +117,7 @@ window.addEventListener("DOMContentLoaded", event => {
     event.preventDefault()
 
     // Mise en place des pointeurs
+    const progression = document.querySelector('#progression')
     const image = document.querySelector('#theImage')
     const text = document.querySelector('#theText')
     const buttons = document.querySelectorAll('.proposition')
@@ -131,11 +132,18 @@ window.addEventListener("DOMContentLoaded", event => {
     // Variables générales
     const optionsData = values(JS_RANDOM)
     const options = optionsData.map(option => option.name)
-    const avancement = Array.from(options, () => false)
+    //const avancement = Array.from(options, () => false)
+    const avancement = [false,true,true,true,true,true,true,true,true,true]
+    const nbWorlds = avancement.length
     let score = 0
 
     // Affichage du monde
     const afficherTour = (random) => {
+
+        // Affichage progression
+        const nbTrue = avancement.filter(e => e === true).length
+        progression.innerHTML = `${nbTrue+1} / ${nbWorlds}`
+
         // Affichage image / texte
         image.setAttribute("src", `images/${optionsData[random].img}`)
         image.setAttribute("alt", 'Image non trouvée')
@@ -182,8 +190,8 @@ window.addEventListener("DOMContentLoaded", event => {
             popup.close()
             afficherTour(random)
         } else {
-            const proportionOk = score / avancement.length * 100
-            endPopupText.innerHTML = `Tu as obtenu ${score} bonnes réponses sur ${avancement.length} (${proportionOk}%).<br>${getEndMessage(proportionOk)}`
+            const proportionOk = score / nbWorlds * 100
+            endPopupText.innerHTML = `Tu as obtenu ${score} bonnes réponses sur ${nbWorlds} (${proportionOk}%).<br>${getEndMessage(proportionOk)}`
             popup.close()
             endPopup.showModal()
         }
