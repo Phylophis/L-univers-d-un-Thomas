@@ -1,5 +1,21 @@
 "use strict"
 
+const IMAGES = [
+    'gormiti',
+    'kirby',
+    'layton',
+    'lego',
+    'mario',
+    'minecraft',
+    'monsterHunter',
+    'pokemon',
+    'skylanders',
+    'terraria',
+    'transformers',
+    'yokaiWatch',
+    'zakStorm'
+]
+
 // Init
 window.addEventListener("DOMContentLoaded", event => {
     event.preventDefault()
@@ -8,6 +24,7 @@ window.addEventListener("DOMContentLoaded", event => {
     const linksTitles = document.querySelectorAll('.containerClick')
     const linksContents = document.querySelectorAll('.links')
     const jeuDeLaventurier = document.querySelector('#jeuDeLaventurier')
+    const background = document.querySelector('#background')
 
     // Ajoute un événement au clic d'un titre (LEGO, Pokémon, Autres)
     linksTitles.forEach((title, index) => title.addEventListener('click', () => {
@@ -34,4 +51,21 @@ window.addEventListener("DOMContentLoaded", event => {
             }           
         })
     }))
+
+    const remplirFond = () => {
+        background.replaceChildren()
+        const largeur = background.offsetWidth
+        const hauteur = background.offsetHeight
+        const colonnes = Math.ceil(largeur / 125)
+        const lignes = Math.ceil(hauteur / 125) + 1
+        const total = colonnes * lignes
+        for (let i = 0; i < total; i++) {
+            const img = document.createElement("img")
+            img.src = `Images index/${IMAGES[i % IMAGES.length]}.png`
+            background.appendChild(img)
+        }
+    }
+
+    remplirFond()
+    window.addEventListener("resize", remplirFond)
 })
