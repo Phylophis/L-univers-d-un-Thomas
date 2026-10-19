@@ -18,6 +18,10 @@
     justify-content: center;
 }
 
+.imgLie {
+    max-height: 50vh;
+}
+
 .imgLien {
     display: flex;
     width: 20%;
@@ -64,6 +68,10 @@
 
     .imgLi p {
         font-size: medium;
+    }
+
+    .imgLie {
+        max-height: 33vh;
     }
 
 }
