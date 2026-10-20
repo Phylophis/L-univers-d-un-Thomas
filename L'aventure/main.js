@@ -1,5 +1,21 @@
 "use strict"
 
+const IMAGES = [
+    'gormiti',
+    'kirby',
+    'layton',
+    'lego',
+    'mario',
+    'minecraft',
+    'monsterHunter',
+    'pokemon',
+    'skylanders',
+    'terraria',
+    'transformers',
+    'yokaiWatch',
+    'zakStorm'
+]
+
 // Constante : contenu de la page
 const JS_RANDOM = {
     CHIMA: {
@@ -129,12 +145,30 @@ window.addEventListener("DOMContentLoaded", event => {
     const endPopup = document.querySelector('#endPopup')
     const endPopupText = document.querySelector('#endPopupText')
 
+    const background = document.querySelector('#background')
+    const main_background = document.querySelector('#main_background')
+
     // Variables générales
     const optionsData = values(JS_RANDOM)
     const options = optionsData.map(option => option.name)
     const avancement = Array.from(options, () => false)
     const nbWorlds = avancement.length
     let score = 0
+
+    // Recharger les images en arrière-plan après avoir réécrit le reste de la page
+    const remplirFond = () => {
+        background.replaceChildren()
+        const largeur = main_background.offsetWidth
+        const hauteur = main_background.offsetHeight
+        const colonnes = Math.ceil(largeur / 125)
+        const lignes = Math.ceil(hauteur / 125) + 1
+        const total = colonnes * lignes
+        for (let i = 0; i < total; i++) {
+            const img = document.createElement("img")
+            img.src = `../Images index/${IMAGES[i % IMAGES.length]}.png`
+            background.appendChild(img)
+        }
+    }
 
     // Affichage du monde
     const afficherTour = (random) => {
@@ -175,6 +209,9 @@ window.addEventListener("DOMContentLoaded", event => {
                 setTimeout(() => popup.showModal(), 1000);
             }
         })
+
+        remplirFond()
+        window.addEventListener("resize", remplirFond)
     }
 
     // Init

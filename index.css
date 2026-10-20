@@ -3,30 +3,6 @@
     position: relative;
 }
 
-/* arrière plan de la page */
-#background {
-    position: absolute;
-    width: 100%;
-    pointer-events: none;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 125px);
-    grid-auto-rows: 125px;
-    overflow: hidden;
-    z-index: -1;
-}
-
-/* cases pour les images d'arrière-plan */
-#background img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    opacity: 0.4;
-}
-
 /* contenu de la page */
 #main_content {
     position: relative;
