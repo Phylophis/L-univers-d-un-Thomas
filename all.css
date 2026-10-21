@@ -44,9 +44,31 @@ button:hover {
 
 #main_background {
     width: 100%;
-    background-image:
-        linear-gradient(to bottom, rgba(93, 93, 173, 0.5), rgba(93, 93, 173, 0.5)),
-        url("star.png");}
+    background-image:linear-gradient(to bottom, rgba(93, 93, 173, 0.5), rgba(93, 93, 173, 0.5));
+    position: relative;
+}
+
+#background {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 125px);
+    grid-auto-rows: 125px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#background img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    opacity: 0.35;
+}
 
 #main_content {
     display: flex;
