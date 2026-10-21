@@ -210,13 +210,18 @@ window.addEventListener("DOMContentLoaded", event => {
             }
         })
 
-        remplirFond()
-        window.addEventListener("resize", remplirFond)
+        // Attendre que le contenu soit chargé sur la page avant de mettre à jour l'arrière-plan
+        image.decode().catch(() => {}).then(() => {
+            requestAnimationFrame(() => {
+                remplirFond()
+            })
+        })
     }
 
     // Init
     let random = getRandomAvailablePlace(avancement)
     afficherTour(random)
+    window.addEventListener("resize", remplirFond)
 
     // Boucle de jeu
     popupKeepOn.addEventListener('click', () => {
