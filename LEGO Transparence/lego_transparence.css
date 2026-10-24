@@ -24,7 +24,7 @@
 
 .imgLien {
     display: flex;
-    width: 20%;
+    width: 30%;
     height: fit-content;
     align-items: center;
 }
@@ -42,6 +42,11 @@
     max-height: 100%;
     width: 20%;
     height: 100%;
+    transition: 0.5s;
+}
+
+#imgs a img:hover {
+    width: 25%;
 }
 
 .imgLi p {
@@ -54,6 +59,10 @@
         width: 30%;
     }
 
+    #imgs a img:hover {
+        width: 35%;
+    }
+
 }
 
 @media only screen and (max-width:750px)  {
@@ -64,6 +73,10 @@
 
     #imgs a img {
         width: 40%;
+    }
+
+    #imgs a img:hover {
+        width: 50%;
     }
 
     .imgLi p {
