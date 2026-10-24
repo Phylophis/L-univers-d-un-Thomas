@@ -67,7 +67,7 @@ button:hover {
     display: flex;
     align-self: center;
     justify-self: center;
-    opacity: 0.35;
+    opacity: 0.20;
 }
 
 #main_content {
