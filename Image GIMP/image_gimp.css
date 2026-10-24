@@ -20,14 +20,23 @@
     display: flex;
     flex-direction: row;
     width: 30%;
-    justify-content: left;
-    align-content: center;
     align-items: center;
+}
+
+#imgs a {
+    display: flex;
+    justify-content: center;
 }
 
 #imgs a img {
     width: 30%;
     height: 30%;
+    transition: 0.5s;
+}
+
+#imgs a img:hover {
+    width: 35%;
+    height: 35%;
 }
 
 @media only screen and (max-width:750px)  {
@@ -43,6 +52,11 @@
     #imgs a img {
         width: 40%;
         height: 40%;
+    }
+
+    #imgs a img:hover {
+        width: 50%;
+        height: 50%;
     }
 
 }
@@ -64,6 +78,11 @@
     #imgs a img {
         width: 50%;
         height: 50%;
+    }
+
+    #imgs a img:hover {
+        width: 60%;
+        height: 60%;
     }
 
 }
